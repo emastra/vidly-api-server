@@ -1,4 +1,0 @@
-joi objectId
-mongoose: modelling relationships (using references (Normalization), using embedded documents (Denormalization),
-and hybrid), population
-Fawn

@@ -1,4 +1,4 @@
-const {Movie, validate} = require('../models/movie');
+const {Movie, validate} = require('../models/movie'); 
 const {Genre} = require('../models/genre');
 const mongoose = require('mongoose');
 const express = require('express');
@@ -10,15 +10,14 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-  const { error } = validate(req.body);
+  const { error } = validate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
 
   const genre = await Genre.findById(req.body.genreId);
   if (!genre) return res.status(400).send('Invalid genre.');
 
-  const movie = new Movie({
+  const movie = new Movie({ 
     title: req.body.title,
-    // we create an obj here instead of using genre obj up above because that obj has a v prop and might have other many props we dont want to embed in the movie doc
     genre: {
       _id: genre._id,
       name: genre.name
@@ -27,19 +26,19 @@ router.post('/', async (req, res) => {
     dailyRentalRate: req.body.dailyRentalRate
   });
   await movie.save();
-
+  
   res.send(movie);
 });
 
 router.put('/:id', async (req, res) => {
-  const { error } = validate(req.body);
+  const { error } = validate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
 
   const genre = await Genre.findById(req.body.genreId);
   if (!genre) return res.status(400).send('Invalid genre.');
 
   const movie = await Movie.findByIdAndUpdate(req.params.id,
-    {
+    { 
       title: req.body.title,
       genre: {
         _id: genre._id,
@@ -50,7 +49,7 @@ router.put('/:id', async (req, res) => {
     }, { new: true });
 
   if (!movie) return res.status(404).send('The movie with the given ID was not found.');
-
+  
   res.send(movie);
 });
 
@@ -70,4 +69,4 @@ router.get('/:id', async (req, res) => {
   res.send(movie);
 });
 
-module.exports = router;
+module.exports = router; 
