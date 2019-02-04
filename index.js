@@ -2,7 +2,6 @@ const winston = require('winston');
 const express = require('express');
 const app = express();
 
-// orchestrate modules
 require('./startup/logging');
 require('./startup/routes')(app);
 require('./startup/db')();
