@@ -4,17 +4,13 @@ const request = require('supertest');
 
 describe('auth middleware', () => {
   beforeEach(() => { server = require('../../index'); })
-  afterEach(async () => {
-    // if i dont clean up with this line, re-running the 'GET /' test would fail because
-    // in the happy path here we create a genre in the db. so then the docuemnts would be more than 2.
+  afterEach(async () => { 
     await Genre.remove({});
-    server.close();
+    await server.close(); 
   });
 
-  let token;
+  let token; 
 
-  // no use of async/await. it returns the returned Promise. ANd then we await later.
-  // it'd be needed if we wanted to use the res for some more calculations and then return some other value!
   const exec = () => {
     return request(server)
       .post('/api/genres')
@@ -27,7 +23,7 @@ describe('auth middleware', () => {
   });
 
   it('should return 401 if no token is provided', async () => {
-    token = '';
+    token = ''; 
 
     const res = await exec();
 
@@ -35,7 +31,7 @@ describe('auth middleware', () => {
   });
 
   it('should return 400 if token is invalid', async () => {
-    token = 'a';
+    token = 'a'; 
 
     const res = await exec();
 
@@ -47,6 +43,4 @@ describe('auth middleware', () => {
 
     expect(res.status).toBe(200);
   });
-
-  // on the happy path we should also test that decoded is set to req.user. But supertest dont access the req obj so we'll write a unit test for this. 
 });

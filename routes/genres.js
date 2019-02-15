@@ -12,17 +12,17 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', auth, async (req, res) => {
-  const { error } = validate(req.body);
+  const { error } = validate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
 
   let genre = new Genre({ name: req.body.name });
   genre = await genre.save();
-
+  
   res.send(genre);
 });
 
 router.put('/:id', [auth, validateObjectId], async (req, res) => {
-  const { error } = validate(req.body);
+  const { error } = validate(req.body); 
   if (error) return res.status(400).send(error.details[0].message);
 
   const genre = await Genre.findByIdAndUpdate(req.params.id, { name: req.body.name }, {
@@ -30,7 +30,7 @@ router.put('/:id', [auth, validateObjectId], async (req, res) => {
   });
 
   if (!genre) return res.status(404).send('The genre with the given ID was not found.');
-
+  
   res.send(genre);
 });
 
@@ -43,8 +43,6 @@ router.delete('/:id', [auth, admin, validateObjectId], async (req, res) => {
 });
 
 router.get('/:id', validateObjectId, async (req, res) => {
-  // middleware above checks if id is valid id otherwise server respond with a 500 instead of 404
-  // if objectId is in the body we could use the joi.objectId validation but not when the id is a route parameters
   const genre = await Genre.findById(req.params.id);
 
   if (!genre) return res.status(404).send('The genre with the given ID was not found.');
