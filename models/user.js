@@ -1,7 +1,7 @@
-const config = require('config');
-const jwt = require('jsonwebtoken');
 const Joi = require('joi');
 const mongoose = require('mongoose');
+const config = require('config');
+const jwt = require('jsonwebtoken');
 
 const userSchema = new mongoose.Schema({
   name: {
@@ -26,7 +26,8 @@ const userSchema = new mongoose.Schema({
   isAdmin: Boolean
 });
 
-userSchema.methods.generateAuthToken = function() { 
+userSchema.methods.generateAuthToken = function() {
+  // payload consists of _id and isAdmin. So I can have then when verifying token 
   const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, config.get('jwtPrivateKey'));
   return token;
 }
@@ -43,5 +44,5 @@ function validateUser(user) {
   return Joi.validate(user, schema);
 }
 
-exports.User = User; 
+exports.User = User;
 exports.validate = validateUser;

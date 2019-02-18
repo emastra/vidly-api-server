@@ -2,8 +2,12 @@ const Joi = require('joi');
 const mongoose = require('mongoose');
 const moment = require('moment');
 
+// hybrid approach!!
 const rentalSchema = new mongoose.Schema({
-  customer: { 
+  // custom schema for customer and movie. not reusing the customer schema previously defined. Because cust can have many props
+  // need only the primary props to display list of rentals.
+  // if in the future i need to display more info about the cust on rental page, i have the customer id, so i could send get request for customer api to get the complete representation
+  customer: {
     type: new mongoose.Schema({
       name: {
         type: String,
@@ -20,38 +24,41 @@ const rentalSchema = new mongoose.Schema({
         required: true,
         minlength: 5,
         maxlength: 50
-      }      
-    }),  
+      }
+    }),
     required: true
   },
   movie: {
+    // same here
+    // going to use this to calculate rental fee.
+    // Including this in an embedded document, no need an additional query to movie collection to calculate renatl fee.
     type: new mongoose.Schema({
       title: {
         type: String,
         required: true,
-        trim: true, 
+        trim: true,
         minlength: 5,
         maxlength: 255
       },
-      dailyRentalRate: { 
-        type: Number, 
+      dailyRentalRate: {
+        type: Number,
         required: true,
         min: 0,
         max: 255
-      }   
+      }
     }),
     required: true
   },
-  dateOut: { 
-    type: Date, 
+  dateOut: {
+    type: Date,
     required: true,
     default: Date.now
   },
-  dateReturned: { 
+  dateReturned: {
     type: Date
   },
-  rentalFee: { 
-    type: Number, 
+  rentalFee: {
+    type: Number,
     min: 0
   }
 });
@@ -73,6 +80,8 @@ rentalSchema.methods.return = function() {
 const Rental = mongoose.model('Rental', rentalSchema);
 
 function validateRental(rental) {
+  // only two props. these are the props the clint sends to the server
+  // client cant set dateout, datereturned or rental fee props. client must send only these two value
   const schema = {
     customerId: Joi.objectId().required(),
     movieId: Joi.objectId().required()
@@ -81,5 +90,5 @@ function validateRental(rental) {
   return Joi.validate(rental, schema);
 }
 
-exports.Rental = Rental; 
+exports.Rental = Rental;
 exports.validate = validateRental;

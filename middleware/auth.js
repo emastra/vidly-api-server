@@ -6,11 +6,13 @@ module.exports = function (req, res, next) {
   if (!token) return res.status(401).send('Access denied. No token provided.');
 
   try {
+    // decoded is an object with _id and isAdmin props. Included when token is generated/signed
     const decoded = jwt.verify(token, config.get('jwtPrivateKey'));
-    req.user = decoded; 
+    req.user = decoded;
     next();
   }
   catch (ex) {
+    // jwt.verify throws an error if cannot verify. and eventually i catch it here.
     res.status(400).send('Invalid token.');
   }
 }

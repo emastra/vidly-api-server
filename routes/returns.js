@@ -6,6 +6,7 @@ const { Movie } = require('../models/movie');
 const Joi = require('joi');
 // const validate = require('../middleware/validate');
 
+// POST a return
 router.post('/', auth, async (req, res) => {
   const { error } = validateReturn(req.body);
   if (error) return res.status(400).send(error.details[0].message);
