@@ -1,0 +1,243 @@
+.row {
+  margin-right: 0;
+}
+
+header {
+  padding: 100px 100px 60px 100px;
+}
+
+section {
+  padding: 80px 0;
+}
+
+a {
+  outline: 0;
+  text-decoration: none !important;
+}
+
+ul {
+  list-style-type: none;
+  list-style: none;
+  padding-left: 0;
+}
+
+.float-right {
+  float: right;
+}
+
+.col-lg-11 {
+  padding: 0 2rem;
+
+}
+
+div#route1 {
+  margin: auto;
+}
+
+.buttons {
+  color: white;
+  background-color: blue;
+  border: 0;
+  cursor: pointer;
+}
+
+.buttons:hover {
+  background-color: darkblue;
+}
+
+#test-login-btn {
+  background-color: #484d51;
+  margin-bottom: 2rem;
+  padding: .8rem;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+#test-login-btn:hover {
+  background-color: #212529;
+}
+
+#test-login-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 0 3px 10px 0 rgba(0,0,0,0.38);
+}
+
+/*--------------------------------------------------------------
+Route Section
+--------------------------------------------------------------*/
+
+.route-title {
+  font-size: 20px;
+}
+
+.route-subtitle {
+  font-size: 14px;
+  color: #4e4e4e;
+  font-weight: 500;
+  margin-left: .4rem;
+}
+
+#route {
+  padding: 60px 0;
+}
+
+#route-list {
+  padding: 0;
+  list-style: none;
+}
+
+#route-list li {
+  border-bottom: 1px solid #ddd;
+  padding: .3rem;
+}
+
+#route-list a {
+  padding: 18px 0;
+  display: block;
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 600;
+  padding-right: 20px;
+}
+
+#route-list i {
+  font-size: 24px;
+  position: absolute;
+  right: 0;
+  /* top: 16px; */
+}
+
+#route-list p {
+  margin-bottom: 20px;
+}
+
+#route-list a.collapse {
+  color: #f82249;
+}
+
+#route-list a.collapsed {
+  color: #000;
+}
+
+#route-list a.collapsed li:hover {
+  background-color: #e1eaea;
+}
+
+#route-list a.collapsed i::before {
+  content: "\f055" !important;
+}
+
+.verb-btn {
+  border-radius: 5px;
+  color: white;
+  padding: 6px 0;
+  font-size: 14px;
+  text-align: center;
+  display: inline-block;
+  width: 70px;
+  //height: 30px;
+}
+
+.GET-color {
+  background-color: blue;
+}
+
+.POST-color {
+  background-color: green;
+}
+
+.PUT-color {
+  background-color: brown;
+}
+
+.DELETE-color {
+  background-color: red;
+}
+
+.endpoint-address {
+  margin-left: .4rem;
+}
+
+.endpoint-desc {
+  font-size: 14px;
+  color: #4e4e4e;
+  font-weight: 500;
+  margin-left: .4rem;
+}
+
+/*--------------------------------------------------------------
+Playground Section
+--------------------------------------------------------------*/
+
+.play-div {
+  background-color: rgb(230, 255, 238);
+  padding: 1rem;
+}
+
+.play-div strong {
+  color: blue;
+}
+
+.table {
+  background-color: rgb(230, 230, 255);
+}
+
+.table th {
+  background-color: rgb(230, 255, 238);
+  /* background-color: white; */
+}
+
+input[name="valueInput"] {
+  width: 15rem;
+}
+
+.res-window {
+  //border: 1px solid black;
+  background-color: #322d2d;
+  color: #37f537;
+  width: 100%;
+  min-height: 10rem;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+.status-window {
+  //border: 1px solid black;
+  background-color: #322d2d;
+  color: #37f537;
+  width: 100%;
+  min-height: 36px;
+  padding: 10px;
+  border-radius: 3px;
+  font-size: 15px;
+}
+
+.execute-btn {
+  margin-bottom: 2rem;
+  padding: .8rem;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+
+.execute-btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4), 0 3px 10px 0 rgba(0,0,0,0.38);
+}
+
+div.white-band {
+  margin-bottom: 1rem;
+}
+
+.footer-p-icons {
+  text-align: center;
+  font-size: 1.5rem;
+}
+
+.icons {
+  margin: 0 .3rem;
+}
+
+footer p i.fa-heart {
+  color: red;
+}

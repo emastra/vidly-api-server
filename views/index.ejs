@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Rently API Playground</title>
+
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <!-- <link href="css/scrolling-nav.css" rel="stylesheet"> -->
+  <link href="css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body id="page-top">
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand js-scroll-trigger" href="/">Rently</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link js-scroll-trigger" href="/contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <header class="bg-primary text-white">
+    <div class="container text-center">
+      <h1>Rently API Playground</h1>
+      <p class="lead">The playground is a great way to test out the Rently APIs, get details about a specific endpoint and view actual responses.</p>
+      <button type="button" name="test-login" id="test-login-btn" class="buttons">Log in as a test user</button>
+      <p id="res-test-login"></p>
+    </div>
+  </header>
+
+
+
+  <section>
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+
+
+        <!-- ROUTE-LIST -->
+        <ul id="route-list">
+
+
+          <!-- ROUTE0 HEAD -->
+          <a data-toggle="collapse" class="collapsed" href="#route0">
+            <li>
+              <span class="route-title">Genres</span>
+              <span class="route-subtitle">Genres operations</span>
+              <i class="fa fa-minus-circle float-right"></i>
+            </li>
+          </a>
+          <!-- end ROUTE0 HEAD -->
+          <!-- ROUTE0 CONTENT -->
+          <div id="route0" class="collapse col-lg-11" data-parent="#route-list">
+            <!-- ROUTE0 ENDPOINT-LIST -->
+            <ul id="endpoint-list0">
+              <%- include('_endpoint', list0) %>
+            </ul>
+            <!-- end ROUTE0 ENDPOINT-LIST -->
+          </div>
+          <!-- end ROUTE0 CONTENT -->
+
+          <!-- ROUTE1 HEAD -->
+          <a data-toggle="collapse" class="collapsed" href="#route1">
+            <li>
+              <span class="route-title">Movies</span>
+              <span class="route-subtitle">Movies operations</span>
+              <i class="fa fa-minus-circle float-right"></i>
+            </li>
+          </a>
+          <!-- end ROUTE1 HEAD -->
+          <!-- ROUTE1 CONTENT -->
+          <div id="route1" class="collapse col-lg-11" data-parent="#route-list">
+            <!-- ROUTE1 ENDPOINT-LIST -->
+            <ul id="endpoint-list1">
+              <%- include('_endpoint', list1) %>
+            </ul>
+            <!-- end ROUTE1 ENDPOINT-LIST -->
+          </div>
+          <!-- end ROUTE1 CONTENT -->
+
+          <!-- ROUTE2 HEAD -->
+          <a data-toggle="collapse" class="collapsed" href="#route2">
+            <li>
+              <span class="route-title">Customers</span>
+              <span class="route-subtitle">Customers operations</span>
+              <i class="fa fa-minus-circle float-right"></i>
+            </li>
+          </a>
+          <!-- end ROUTE2 HEAD -->
+          <!-- ROUTE2 CONTENT -->
+          <div id="route2" class="collapse col-lg-11" data-parent="#route-list">
+            <!-- ROUTE2 ENDPOINT-LIST -->
+            <ul id="endpoint-list2">
+              <%- include('_endpoint', list2) %>
+            </ul>
+            <!-- end ROUTE2 ENDPOINT-LIST -->
+          </div>
+          <!-- end ROUTE2 CONTENT -->
+
+          <!-- ROUTE3 HEAD -->
+          <a data-toggle="collapse" class="collapsed" href="#route3">
+            <li>
+              <span class="route-title">Rentals</span>
+              <span class="route-subtitle">Rentals operations</span>
+              <i class="fa fa-minus-circle float-right"></i>
+            </li>
+          </a>
+          <!-- end ROUTE3 HEAD -->
+          <!-- ROUTE3 CONTENT -->
+          <div id="route3" class="collapse col-lg-11" data-parent="#route-list">
+            <!-- ROUTE3 ENDPOINT-LIST -->
+            <ul id="endpoint-list3">
+              <%- include('_endpoint', list3) %>
+            </ul>
+            <!-- end ROUTE3 ENDPOINT-LIST -->
+          </div>
+          <!-- end ROUTE3 CONTENT -->
+
+
+
+        </ul>
+        <!-- end ROUTE-LIST -->
+
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark">
+    <div class="container">
+      <p class="m-0 text-center text-white">Developed with <i class="fa fa-heart"></i> by <a href="http://mastragostino.me" target="_blank">Emiliano Mastragostino</a></p>
+      <p class="footer-p-icons m-0">
+        <a href="https://www.linkedin.com/in/emiliano-mastragostino/" target="_blank"><i class="fa fa-linkedin icons"></i></a>
+        <a href="https://github.com/emastra" target="_blank"><i class="fa fa-github icons"></i></a>
+        <a href="https://plus.google.com/112095688629248913313" target="_blank"><i class="fa fa-google-plus-square icons"></i></a>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Plugin JavaScript -->
+  <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+
+  <!-- Custom JavaScript for this theme -->
+  <script src="js/scrolling-nav.js"></script>
+  <script src="js/rentlyScript.js"></script>
+
+</body>
+
+</html>

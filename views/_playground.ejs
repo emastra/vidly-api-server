@@ -1,0 +1,24 @@
+                <p><%= longdesc %></p>
+                <div class="white-band"><strong>Parameters</strong></div>
+                <% if (!table.length) { %>
+                  <p>No parameters for this endpoint.</p>
+                <% } else { %>
+                  <table class="table params-table">
+                    <tr>
+                      <th class="col" style="width: 33.33%">Name</th>
+                      <th class="col" style="width: 33.33%">Description</th>
+                      <th class="col" style="width: 33.33%">Value</th>
+                    </tr>
+                  <% table.forEach(function(tableRow) { %>
+                    <tr>
+                      <td><%= tableRow.name %></td>
+                      <td><%= tableRow.description %></td>
+                      <td><input type=<%= tableRow.type %> name="valueInput"></td>
+                    </tr>
+                  <% }); %>
+                  </table>
+                <% } %>
+                <button class="execute-btn buttons" type="button" name="execute">Make Call</button>
+                <div class="white-band"><strong>Response</strong><span class="float-right"><strong>Content-Type:</strong> application/json</span></div>
+                <pre class="status-window">Status code and text</pre>
+                <pre class="res-window">Make the call to this endpoint to see the response</pre>

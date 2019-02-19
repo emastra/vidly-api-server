@@ -1,0 +1,28 @@
+              <% endpoints.forEach(function(endpoint) { %>
+              <!-- ENDPOINT HEAD -->
+              <a data-toggle="collapse" class="collapsed" href="#<%= endpoint.hrefid %>">
+                <li>
+                  <span class="verb-btn <%= endpoint.method %>-color"><strong><%= endpoint.method %></strong></span>
+                  <span class="endpoint-address"><%= endpoint.address %></span>
+                  <span class="endpoint-desc"><%= endpoint.shortdesc %></span>
+                  <i class="fa fa-minus-circle float-right"></i>
+                </li>
+              </a>
+              <!-- end ENDPOINT HEAD -->
+              <!-- ENDPOINT CONTENT -->
+              <div id="<%= endpoint.hrefid %>" class="play-div collapse" data-parent="<%= endpoint.parent %>"> <!-- qua ce andrebbe endpoint-list0 -->
+                <%- include('_playground', endpoint.playgroundvars) %>
+              </div>
+              <!-- end ENDPOINT CONTENT -->
+
+              <% }); %>
+
+
+              <!--
+href-id: 'endpoint0'
+method: 'GET'
+address: '/api/genres'
+short-desc: 'List all genres'
+parent: '#endpoint-list0'
+endpoint: 0
+            -->
