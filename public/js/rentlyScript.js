@@ -1,5 +1,4 @@
-var url = 'http://localhost:3000/';
-// SHOW TOKEN ON THE PAGE, AND ADD AN INPUT TO LET THE USER ADD THE TOKEN MANUALLY ON EVERY REQUEST?
+const url = window.location.href;
 
 // OPEN CATEGORY
 
