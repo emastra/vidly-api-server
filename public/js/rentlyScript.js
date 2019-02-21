@@ -1,4 +1,4 @@
-const url = window.location.href;
+const baseURL = window.location.href;
 
 // OPEN CATEGORY
 
@@ -56,7 +56,7 @@ var testLoginBtn = document.getElementById('test-login-btn');
 var resPara = document.getElementById('res-test-login');
 
 testLoginBtn.addEventListener('click', function(ev) {
-  var url = 'http://localhost:3000/api/auth';
+  var url = baseURL + 'api/auth';
   var data = {email: 'webinttest@test.com', password: '123456'}
   var options = {
     method: 'POST',
@@ -176,7 +176,7 @@ executeBtns.forEach(function(button, i, buttons) {
 
 function apiReq(path, method, body, currentButton) {
   console.log('INSIDE apiReq');
-  var currentUrl = url + path;
+  var currentUrl = baseURL + path;
   var options = Object.create(null);
   options.method = method;
   options.headers = {'Content-Type': 'application/json'};
