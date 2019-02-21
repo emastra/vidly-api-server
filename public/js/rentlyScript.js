@@ -127,7 +127,6 @@ executeBtns.forEach(function(button, i, buttons) {
         break;
       case 7:
         var valueInputs = button.parentElement.querySelectorAll('input[name="valueInput"]');
-        console.log(valueInputs);
         apiReq(`api/movies/${valueInputs[0].value}`, 'PUT', {title: valueInputs[1].value, genreId: valueInputs[2].value, numberInStock: valueInputs[3].value, dailyRentalRate: valueInputs[4].value}, button);
         break;
       case 8:
@@ -175,7 +174,6 @@ executeBtns.forEach(function(button, i, buttons) {
 });
 
 function apiReq(path, method, body, currentButton) {
-  console.log('INSIDE apiReq');
   var currentUrl = baseURL + path;
   var options = Object.create(null);
   options.method = method;
@@ -186,8 +184,6 @@ function apiReq(path, method, body, currentButton) {
   if (body != null) {
     options.body = JSON.stringify(body);
   }
-  console.log('OPTIONS TO BE PASSED', options);
-  console.log(currentUrl)
 
   fetch(currentUrl, options).then(function(response) {
     var statusWindow = currentButton.parentElement.querySelector('.status-window');
@@ -209,7 +205,6 @@ function apiReq(path, method, body, currentButton) {
 
     return response.json();
   }).then(function(resData) {
-    console.log('RESDATA', resData);
     var resWindow = currentButton.parentElement.querySelector('.res-window');
     resWindow.innerHTML = JSON.stringify(resData, null, 4);
   });
