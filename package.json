@@ -7,6 +7,9 @@
     "start": "node index",
     "test": "jest --watchAll --verbose"
   },
+  "engines": {
+    "node": "9.11.2"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
