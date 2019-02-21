@@ -1,5 +1,5 @@
 const winston = require('winston');
-require('winston-mongodb');
+// require('winston-mongodb');
 const expressWinston = require('express-winston');
 // async errors handling wrap
 require('express-async-errors');
@@ -46,10 +46,10 @@ module.exports = function(app) {
   }));
 
   if (process.env.NODE_ENV == 'production') {
-    winston.add(winston.transports.MongoDB, {
-      db: 'mongodb://localhost/vidly',
-      level: 'info'
-    });
+    // winston.add(winston.transports.MongoDB, {
+    //   db: 'mongodb://localhost/vidly',
+    //   level: 'info'
+    // });
   } else {
     winston.add(new winston.transports.Console({
       level: 'debug',
