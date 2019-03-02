@@ -143,7 +143,7 @@ executeBtns.forEach(function(button, i, buttons) {
         break;
       case 11:
         var valueInputs = button.parentElement.querySelectorAll('input[name="valueInput"]');
-        apiReq('api/customers', 'POST', {name: valueInputs[0].value, isGold: valueInputs[1].value, phone: valueInputs[2].value}, button);
+        apiReq('api/customers', 'POST', {name: valueInputs[0].value, isGold: valueInputs[1].checked, phone: valueInputs[2].value}, button);
         break;
       case 12:
         var valueInputs = button.parentElement.querySelectorAll('input[name="valueInput"]');
