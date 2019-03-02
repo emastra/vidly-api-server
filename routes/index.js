@@ -1,31 +1,6 @@
 const express = require('express');
 const router = express.Router();
 
-// const data = {
-//   parameters: {
-//     // Genres
-//     0: null,
-//     1: [{name: 'Name', description: 'Name of the genre', type: 'text'}],
-//     2: [
-//       {name: 'Id', description: 'ID of the genre to update', type: 'text'},
-//       {name: 'Name', description: 'New name of the genre', type: 'text'}
-//     ],
-//     3: [{name: 'Id', description: 'ID of the genre to delete', type: 'text'}],
-//     4: [{name: 'Id', description: 'ID of the genre to retrieve', type: 'text'}],
-//     // Movies
-//     5: [
-//       {name: 'email', description: 'Email of the new user', type: 'text'},
-//       {name: 'password', description: 'Password for this account', type: 'text'}
-//     ],
-//     6: null,
-//     7: [
-//       {name: 'email', description: 'Email of the user to be logged in', type: 'text'},
-//       {name: 'password', description: 'Password for the account', type: 'text'}
-//     ],
-//     8: null,
-//   }
-// }
-
 const data = {
   list0: {
     endpoints: [
@@ -278,10 +253,52 @@ const data = {
     ]
   },
   list4: {
-    endpoints: []
+    endpoints: [
+      {
+        hrefid: 'endpoint-4-0',
+        method: 'POST',
+        address: '/api/returns',
+        shortdesc: 'Create a return',
+        parent: '#endpoint-list4',
+        playgroundvars: {
+          longdesc: 'Register the return of a video. It sets dateReturned and rentalFee on the actual rental. It requires the customerId and the movieId of the rental.',
+          table: [
+            {name: 'Customer Id', description: 'Id of the customer for the rental to return', type: 'text'},
+            {name: 'Movie Id', description: 'Id of the movie for the rental to return', type: 'text'}
+          ]
+        }
+      }
+    ]
   },
   list5: {
-    endpoints: []
+    endpoints: [
+      {
+        hrefid: 'endpoint-5-0',
+        method: 'GET',
+        address: '/api/users/me',
+        shortdesc: 'Get the current user information.',
+        parent: '#endpoint-list5',
+        playgroundvars: {
+          longdesc: 'Retrieve information of the current user.',
+          table: []
+        }
+      },
+      {
+        hrefid: 'endpoint-5-1',
+        method: 'POST',
+        address: '/api/users',
+        shortdesc: 'Create a new user',
+        parent: '#endpoint-list5',
+        playgroundvars: {
+          longdesc: 'Create a new user. It requires name, email and password.',
+          table: [
+            {name: 'Name', description: 'Name of the new user', type: 'text'},
+            {name: 'Email', description: 'Email of the new user', type: 'text'},
+            {name: 'Password', description: 'Password of the new user', type: 'password'}
+          ]
+        }
+      }
+    ]
   }
 };
 

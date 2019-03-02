@@ -169,6 +169,20 @@ executeBtns.forEach(function(button, i, buttons) {
         var valueInput = button.parentElement.querySelector('input[name="valueInput"]');
         apiReq(`api/rentals/${valueInput.value}`, 'GET', null, button);
         break;
+      // returns
+      case 18:
+        var valueInputs = button.parentElement.querySelectorAll('input[name="valueInput"]');
+        apiReq('api/returns/', 'POST', {customerId: valueInputs[0].value, movieId: valueInputs[1].value}, button);
+        break;
+      // users
+      case 19:
+        // var valueInputs = button.parentElement.querySelectorAll('input[name="valueInput"]');
+        apiReq('api/users/me/', 'GET', null, button);
+        break;
+      case 20:
+        var valueInputs = button.parentElement.querySelectorAll('input[name="valueInput"]');
+        apiReq('api/users/', 'POST', {name: valueInputs[0].value, email: valueInputs[1].value, password: valueInputs[2].value}, button);
+        break;
     }
   });
 });
