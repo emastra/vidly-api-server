@@ -29,12 +29,11 @@ const Movie = mongoose.model('Movies', new mongoose.Schema({
 }));
 
 function validateMovie(movie) {
-
   const schema = {
     title: Joi.string().min(5).max(50).required(),
     // here I check only for genreId not the whole object, because i want the user to send only id
     // this infact is INPUT validation (what the user sends). the mongoose schema can be larger than this. Infact the mongoose schema for genre is a complex object
-    // the mongoose schema instead is the representation of our model in our app, its the persistence model, what we are going to store in our mongodb 
+    // the mongoose schema instead is the representation of our model in our app, its the persistence model, what we are going to store in our mongodb
     genreId: Joi.objectId().required(),
     numberInStock: Joi.number().min(0).required(),
     dailyRentalRate: Joi.number().min(0).required()

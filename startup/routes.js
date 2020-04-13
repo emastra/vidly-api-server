@@ -11,7 +11,6 @@ const notFound = require('../middleware/notFound');
 const error = require('../middleware/error');
 
 module.exports = function(app) {
-  app.use(express.json());
   app.use('/', index);
   app.use('/api/genres', genres);
   app.use('/api/customers', customers);

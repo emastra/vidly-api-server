@@ -27,7 +27,7 @@ module.exports = function(app) {
   winston.exceptions.handle(
     new winston.transports.Console(),
     new winston.transports.File({ filename: 'uncaughtExceptions.log' })
-    // then it will automatically close the process // bad practive otherwise risk unclean state of the app
+    // then it will automatically close the process // bad practice otherwise risk unclean state of the app
   );
   process.on('unhandledRejection', (ex) => {
     throw ex;
