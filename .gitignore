@@ -1,5 +1,5 @@
 node_modules/
 my_stuff/
-logfile.log
-uncaughtExceptions.log
 .directory
+src/server/logfile.log
+src/server/uncaughtExceptions.log

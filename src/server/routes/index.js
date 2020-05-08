@@ -306,7 +306,7 @@ const router = express.Router();
 //   res.render('index', data);
 // });
 router.get('/', (req, res) => {
-  res.sendFile(__dirname + '../public/index.html');
+  res.sendFile(__dirname + '../../public/index.html');
 });
 
 
