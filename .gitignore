@@ -3,3 +3,4 @@ my_stuff/
 .directory
 src/server/logfile.log
 src/server/uncaughtExceptions.log
+dist/
